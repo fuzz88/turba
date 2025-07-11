@@ -23,4 +23,6 @@ void freeChunk(Chunk* chunk);
 void writeChunk(Chunk* chunk, uint8_t byte, int line);
 int addConstant(Chunk* chunk, Value value);
 
+// TODO: OP_CONSTANT_LONG for 24-bit number constant.
+// void writeConstant(Chunk* chunk, Value value, int line);
 #endif
