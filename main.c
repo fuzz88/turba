@@ -15,7 +15,11 @@ int main(int argc, const char* argv[])
     writeChunk(&chunk, OP_CONSTANT, 123);
     writeChunk(&chunk, constant, 123);
 
-    writeChunk(&chunk, OP_RETURN, 123);
+    constant = addConstant(&chunk, 1.3);
+    writeChunk(&chunk, OP_CONSTANT, 123);
+    writeChunk(&chunk, constant, 123);
+
+    writeChunk(&chunk, OP_RETURN, 124);
 
     interpret(&chunk);
 
