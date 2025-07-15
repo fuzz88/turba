@@ -1,7 +1,7 @@
 .PHONY: build
 
 build: main.c
-	cc -o turba main.c chunk.c memory.c debug.c value.c vm.c
+	cc -ggdb -o turba main.c chunk.c memory.c debug.c value.c vm.c
 
 optimized: main.c
 	cc -Wextra -Wall -O3 -o turba main.c chunk.c memory.c debug.c value.c vm.c

@@ -13,10 +13,17 @@ typedef enum {
 typedef struct {
     int count;
     int capacity;
+    int* items;
+} Lines;
+
+typedef struct {
+    int count;
+    int capacity;
     uint8_t* code;
-    int* lines;
+    Lines* lines;
     ValueArray constants;
 } Chunk;
+
 
 void initChunk(Chunk* chunk);
 void freeChunk(Chunk* chunk);
