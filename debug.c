@@ -30,8 +30,8 @@ static int simpleInstruction(const char* name, int offset)
 
 int getLine(Chunk* chunk, int offset) {
     int line_offset = 0;
-    for (int i = 0; i < chunk->lines->count; i = i + 2) {
-        line_offset = line_offset + chunk->lines->items[i];
+    for (int i = 0; i < chunk->lines->count; i += 2) {
+        line_offset += chunk->lines->items[i];
         if (line_offset > offset ) {
             return chunk->lines->items[i + 1];
         }

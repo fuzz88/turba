@@ -12,7 +12,7 @@ void initChunk(Chunk* chunk)
 
     chunk->lines = malloc(sizeof(Lines));
     chunk->lines->count = 0;
-    chunk->lines->capacity = 4;
+    chunk->lines->capacity = 0;
     chunk->lines->items = NULL;
     chunk->lines->items = GROW_ARRAY(int, chunk->lines->items, 0, chunk->lines->capacity);
 
@@ -39,7 +39,7 @@ void writeChunk(Chunk* chunk, uint8_t byte, int line)
     chunk->code[chunk->count] = byte;
     chunk->count++;
 
-    if ((chunk->lines->count != 0) && (chunk->lines->items[chunk->lines->count - 1] == line)) {
+    if ((chunk->lines->count >= 2) && (chunk->lines->items[chunk->lines->count - 1] == line)) {
         chunk->lines->items[chunk->lines->count - 2]++; 
     } else {
         if (chunk->lines->capacity < chunk->lines->count + 2) {
@@ -50,7 +50,7 @@ void writeChunk(Chunk* chunk, uint8_t byte, int line)
         // run-length encoding for line numbers
         chunk->lines->items[chunk->lines->count] = 1;
         chunk->lines->items[chunk->lines->count + 1] = line;
-        chunk->lines->count = chunk->lines->count + 2;
+        chunk->lines->count += 2;
     }
 
 }
