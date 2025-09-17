@@ -68,7 +68,7 @@ static InterpretResult run()
             case OP_ADD:        BINARY_OP(+); break;
             case OP_SUBSTRACT:  BINARY_OP(-); break;
             case OP_MULTIPLY:   BINARY_OP(*); break;
-            case OP_DEVIDE:     BINARY_OP(/); break;
+            case OP_DIVIDE:     BINARY_OP(/); break;
             case OP_NEGATE:
                 {
                     *(vm.stackTop - 1) *= -1;
