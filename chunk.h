@@ -13,6 +13,10 @@ typedef enum {
     OP_CONSTANT,
     OP_NEGATE,
     OP_RETURN,
+    OP_NIL,
+    OP_TRUE,
+    OP_FALSE,
+    OP_NOT,
 } OpCode;
 
 typedef struct {
