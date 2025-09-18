@@ -20,6 +20,8 @@ struct Obj {
     struct Obj* next;
 };
 
+
+// TODO: use flexible array member to store the chars (single allocation).
 struct ObjString {
     Obj obj;
     int length;
