@@ -279,6 +279,7 @@ static void parsePrecedence(Precedence precedence) {
 }
 
 static uint8_t identifierConstant(Token* name) {
+    // TODO: reuse 'variable name' constants
     return makeConstant(OBJ_VAL(copyString(name->start, name->length)));
 }
 

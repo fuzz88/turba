@@ -127,6 +127,7 @@ static InterpretResult run()
                 break;
             }
             case OP_GET_GLOBAL: {
+                // TODO: globals can be implemented with dynamic arrays and instant lookup.
                 ObjString* name = READ_STRING();
                 Value value;
                 if (!tableGet(&vm.globals, name, &value)) {
