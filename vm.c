@@ -30,29 +30,25 @@ static void runtimeError(const char* format, ...) {
     resetStack();
 }
 
-void initVM()
-{
+void initVM() {
     resetStack();
     vm.objects = NULL;
     initTable(&vm.globals);
     initTable(&vm.strings);
 } 
 
-void freeVM()
-{
+void freeVM() {
     freeTable(&vm.globals);
     freeTable(&vm.strings);
     freeObjects();
 }
 
-void push(Value value)
-{
+void push(Value value) {
     *vm.stackTop = value;
     vm.stackTop++;
 }
 
-Value pop()
-{
+Value pop() {
     vm.stackTop--;
     return *vm.stackTop;
 }
@@ -194,8 +190,7 @@ static InterpretResult run()
 #undef BINARY_OP
 }
 
-InterpretResult interpret(const char* source)
-{
+InterpretResult interpret(const char* source) {
     Chunk chunk;
     initChunk(&chunk);
     
