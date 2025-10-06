@@ -498,3 +498,6 @@ bool compile(const char* source, Chunk* chunk) {
     endCompiler();
     return !parser.hadError;
 }
+
+TODO: implement "const"
+TODO: more than 256 local variables in scope
